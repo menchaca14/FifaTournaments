@@ -1,0 +1,18 @@
+.centrado {
+    color:white;
+	margin: 0pt auto;
+    background-image: url(../imagenes/iniciosesion.jpg);
+	width: 250px;
+    height: 165px;
+}
+
+.textoinicio {
+margin-left: 30px;
+margin-bottom: auto;
+color: black;
+}
+
+h1 {
+color: white;
+text-align: center;
+}
