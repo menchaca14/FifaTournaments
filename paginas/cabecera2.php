@@ -4,13 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
-    <meta name="author" content="Javier Rodriguez ,Ignacio Menchaca" />
+    <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
 </head>
 
 <body>
-                                                    									  <!--LOGOS--> 
+                                        <!--LOGOS--> 
 	<div id="panel_logos">
 	<div id="facebook">
 		<a href="http://www.facebook.es" ></a>
@@ -24,8 +24,8 @@
 		<a href="http://www.youtube.es" ></a>
 	</div>
 	</div>
-
-	<div id="banner">            																			<!--BANNER-->
+                                          <!--BANNER-->
+	<div id="banner">            																			
   		<a href="../index.php" ><img class="izquierda" src="../imagenes/bannerpru.jpg"/></a>
          <?php
             session_start();

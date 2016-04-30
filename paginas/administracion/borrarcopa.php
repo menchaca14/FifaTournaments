@@ -8,7 +8,7 @@ include "../../conexion.php";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
-    <meta name="author" content="Javier Rodriguez ,Ignacio Menchaca" />
+    <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
 	<link href="../../estilos/cabecera.css" rel="stylesheet" type="text/css" />

@@ -3,19 +3,19 @@ include "cabecera2.php";
 include "../conexion.php";
 
 function validateClave1($clave1){
-	//NO tiene minimo de 5 caracteres o mas de 12 caracteres
+	//comprobacion caracteres entre 5 y 12 para validar clave
 	if(strlen($clave1) < 5 || strlen($clave1) > 12)
 		return false;
-	// SI longitud, NO VALIDO numeros y letras
+	// longitud, numeros y letras
 	else if(!preg_match("/^[0-9a-zA-Z]+$/", $clave1))
 		return false;
-	// SI rellenado, SI email valido
+	// si todo esta ok
 	else
 		return true;
 }
 
 function validateClave2($clave1, $clave2){
-	//NO coinciden
+	//comparo las claves
 	if($clave1 != $clave2)
 		return false;
 	else
@@ -121,7 +121,7 @@ if(isset($_POST['enviar'])){
             $link = mysql_connect('localhost', USER, PASS)or die('No se pudo conectar: ' . mysql_error());
             mysql_select_db('fifa') or die('No se pudo seleccionar la base de datos');
 
-// Comprobamos si el nombre de usuario o la cuenta de correo ya existían
+// Comprobamos si los datos ya existen
 $checkuser = mysql_query("SELECT alias FROM jugador WHERE alias='".$_POST['alias']."'") ;
 $username_exist = mysql_num_rows($checkuser);
 

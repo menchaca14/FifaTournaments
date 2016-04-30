@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
-    <meta name="author" content="Javier Rodriguez ,Ignacio Menchaca" />
+    <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
 </head>
@@ -23,11 +23,6 @@
 	<div id="youtube">
 		<a href="http://www.youtube.es" ></a>
 	</div>
-    <div class=reproductor>        
-        <audio controls>
-        <source src="../../musica/TheWhiteStripes.ogg" type="audio/ogg">
-        </audio>
-    </div>
 	</div>
 
 	<div id="banner">            																			<!--BANNER-->

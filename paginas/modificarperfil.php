@@ -8,7 +8,7 @@ include "../conexion.php";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
-    <meta name="author" content="Javier Rodriguez ,Ignacio Menchaca" />
+    <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
 	<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@ include "../conexion.php";
     <div class=cuerpo>
     
     <?php
-        //VENGO DE CLIENTES.PHP. PETICIÓN GET
+        //Peticion GET de clientes.php
         //Compruebo que he recibido el parámetro por la query.
             $link = mysql_connect('localhost', USER, PASS)or die('No se pudo conectar: ' . mysql_error());
             mysql_select_db('fifa') or die('No se pudo seleccionar la base de datos');
@@ -59,7 +59,7 @@ include "../conexion.php";
                 mysql_free_result($result2);
                 
 
-                //Este campos no se va a modificar, lo muestro oculto
+                //Este campos no se va a modificar, se ocultan
                 echo "<input type='hidden' name='idjugador' value='".$line['idjugador']."'><br>";
                 echo "<br><input class=centro type='submit' name='enviar' value='Enviar'><br><br>";
             echo "</form>";
