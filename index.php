@@ -68,8 +68,9 @@ src="http://www.youtube.com/embed/peM77Ec_2oM">
     <?php
     if(isset($_SESSION['alias'])){
 ?>
+
     <div class=cuadros2>
-        <iframe width="720" height="576"
+        <iframe width="500" height="400"
 src="http://www.youtube.com/embed/peM77Ec_2oM">
 </iframe>
     </div>
