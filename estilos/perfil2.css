@@ -1,0 +1,72 @@
+.fondoperfil {
+background-image: url(../imagenes/);
+margin: 1em auto; 
+width: 250px;
+height: 350px;
+text-align: center;
+}
+
+.fondoperfil2 {
+background-image: url(../imagenes/iniciosesion.jpg);
+margin: 1em auto; 
+width: 250px;
+height: 165px;
+text-align: center;
+}
+
+.cuadroperfil {
+margin-left: 30px;
+padding-top: 20px;
+font-family: Chiller;
+font-size: 32px;
+padding-bottom: 20px;
+}
+
+.modificarperfil {
+margin: 0 auto;
+color: black;
+}
+
+.fondomodificarperfil {
+text-align: left;
+margin: 0 auto;
+color: black;
+background-image: url(../imagenes/fondomodificar.jpg);
+width: 400px;
+height: 400px;
+}
+
+.centro {
+margin-left: 20px;    
+}
+
+.modificarperfil a {
+color: black;
+}
+
+.modificarperfil a:hover {
+background-color: grey;
+color: white;
+padding: 4px;
+-webkit-border-radius: 2em;
+-moz-border-radius: 2em;
+}
+
+.fondoavatar {
+background-image: url(../imagenes/fondoavatar.jpg);
+margin: auto; 
+width: 479px;
+height: 95px;
+text-align: center;
+}
+
+.formulario{
+ margin-top:30px;   
+}
+
+p {
+color: black;
+font-size: 14px;
+margin-left: 20px;
+margin-right: 20px;
+}

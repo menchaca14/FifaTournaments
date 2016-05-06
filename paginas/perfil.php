@@ -11,15 +11,30 @@ include "../conexion.php";
     <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
-	<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
-    <link href="../estilos/perfil.css" rel="stylesheet" type="text/css" />
+<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
+<link href="../estilos/perfil.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class=cuerpo>
 <?php
+
     
- if(isset($_SESSION['alias'])){  
+/////////////////////////////////////////////TEMAS
+    
+if(!isset($_SESSION['css'])) 
+{ 
+    $_SESSION['css'] = 'perfil'; 
+} 
+
+if(isset($_POST['estilo'])) 
+{ 
+    $_SESSION['css'] = $_POST['estilo']; 
+}  
+
+/////////////////////////////////////////////FIN DE TEMAS
+    
+if(isset($_SESSION['alias'])){  
 echo "<div class=fondoperfil>";
 echo "<table class='cuadroperfil'><tr class='fondoalias'><td>".$_SESSION['alias']."</td>";
  if(isset($_SESSION['equipofav'])){  
@@ -53,9 +68,20 @@ echo "</div>";
     echo "<div class='fondoperfil2'>";
     echo "<br><p>Loguéate <a href='login.php'>aquí</a> para poder acceder a tu perfil.</p>";
     echo "<p>Si aun no tienes cuenta puedes registrarte <a href='registro.php'>aquí</a></p>";
+    
     echo "</div>";
+    
 }
 ?>
+<link rel="stylesheet" href="<?=$_SESSION['css']?>.css" type="text/css" />      
+<form action="<?=$_SERVER['PHP_SELF']?>" method="post"> Tema para la web:
+ <select name="estilo"> 
+    <option value="perfil1">perfil1</option> 
+    <option value="perfil2">perfil2</option> 
+ </select> 
+  <input type="submit" value="cambiar" />
+</form>
+        
     </div>
 </body>
 </html>
