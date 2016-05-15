@@ -11,28 +11,26 @@ include "../conexion.php";
     <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
-<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
-<link href="../estilos/perfil.css" rel="stylesheet" type="text/css" />
 </head>
 
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+	echo "<link href='../estilos/".$_SESSION['temapref']."/perfil.css' rel='stylesheet' type='text/css' />";
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='../estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='../estilos/1/perfil.css' rel='stylesheet' type='text/css' />";
+      
+ } ?>     
+    
+    
 <body>
     <div class=cuerpo>
 <?php
 
-    
-/////////////////////////////////////////////TEMAS
-    
-if(!isset($_SESSION['css'])) 
-{ 
-    $_SESSION['css'] = 'perfil'; 
-} 
-
-if(isset($_POST['estilo'])) 
-{ 
-    $_SESSION['css'] = $_POST['estilo']; 
-}  
-
-/////////////////////////////////////////////FIN DE TEMAS
     
 if(isset($_SESSION['alias'])){  
 echo "<div class=fondoperfil>";
@@ -62,6 +60,9 @@ echo "Aún no tienes avatar, sube tu avatar <a href='perfil2.php'>aquí</a>";
 echo "</table>";
 echo "<span class='modificarperfil'>";
 echo "<a href='modificarperfil.php'>Modificar perfil</a>";
+echo "</span></br>";
+echo "<span class='modificarperfil'>";
+echo "<a href='modificartema.php'>Modificar tema</a>";
 echo "</span>";
 echo "</div>";
 } else {
@@ -73,15 +74,7 @@ echo "</div>";
     
 }
 ?>
-<link rel="stylesheet" href="<?=$_SESSION['css']?>.css" type="text/css" />      
-<form action="<?=$_SERVER['PHP_SELF']?>" method="post"> Tema para la web:
- <select name="estilo"> 
-    <option value="perfil1">perfil1</option> 
-    <option value="perfil2">perfil2</option> 
- </select> 
-  <input type="submit" value="cambiar" />
-</form>
-        
+  
     </div>
 </body>
 </html>

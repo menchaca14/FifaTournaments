@@ -10,8 +10,22 @@ include "../conexion.php";
     <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
-	<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
-	<link href="../estilos/login.css" rel="stylesheet" type="text/css" />
+
+<?php if(isset($_SESSION['alias'])){
+
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+
+    echo "<link href='../estilos/".$_SESSION['temapref']."/login.css' rel='stylesheet' type='text/css' />";
+
+    } else { ?>
+
+	<link href="../estilos/1/cabecera.css" rel="stylesheet" type="text/css" />
+
+    <link href="../estilos/1/login.css" rel="stylesheet" type="text/css" />
+
+ <?php } ?>
+      
+      
 </head>
 
 <body>
@@ -108,7 +122,32 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
     foreach ($line as $col_value) {
         $_SESSION['idjugador'] = $col_value;
     }
-}  
+}
+                
+// Realizar una consulta MySQL
+$query = 'SELECT temapref FROM jugador where alias="'.$_SESSION['alias'].'"';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+
+// Imprimir los resultados en HTML
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    foreach ($line as $col_value) {
+        $_SESSION['temapref'] = $col_value;
+    }
+}
+                
+                             
+// Realizar una consulta MySQL
+$query = 'SELECT email FROM jugador where alias="'.$_SESSION['alias'].'"';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+
+// Imprimir los resultados en HTML
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    foreach ($line as $col_value) {
+        $_SESSION['email'] = $col_value;
+    }
+}
             }
 
 ?>

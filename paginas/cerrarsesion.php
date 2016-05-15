@@ -8,9 +8,21 @@ include "cabecera2.php";
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
     <meta name="author" content="Ignacio Menchaca Recio" />
-    <link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
-    <link href="../estilos/cerrarsesion.css" rel="stylesheet" type="text/css" />
     <title>Fifa-Tournaments</title>
+
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cerrarsesion.css' rel='stylesheet' type='text/css' />";
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='../estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='../estilos/1/cerrarsesion.css' rel='stylesheet' type='text/css' />";
+      
+ } ?>     
+    
 </head>
 
 <body>

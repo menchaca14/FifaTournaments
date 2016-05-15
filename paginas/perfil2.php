@@ -15,6 +15,22 @@ include "../conexion.php";
 	<link href="../estilos/perfil.css" rel="stylesheet" type="text/css" />
 </head>
 
+<!--COMPRUEBO EL TEMA DE LA SESIÓN DEL JUGADOR QUE ESTÁ ACTIVA EN ESTE MOMENTO-->
+
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+	echo "<link href='../estilos/".$_SESSION['temapref']."/perfil.css' rel='stylesheet' type='text/css' />";
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='../estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='../estilos/1/perfil.css' rel='stylesheet' type='text/css' />";
+      
+ } ?>         
+    
+    
 <body>
     <div class=cuerpo>
     <div class=fondoavatar>

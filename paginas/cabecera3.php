@@ -5,7 +5,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html ; charset=utf-8" />
     <meta name="author" content="Ignacio Menchaca Recio" />
-        
+      
+      
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+    } else { ?>
+	<link href="../estilos/1/cabecera.css" rel="stylesheet" type="text/css" />
+<?php } ?>
+      
+      
     <title>Fifa-Tournaments</title>
 </head>
 

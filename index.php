@@ -12,8 +12,22 @@ include "paginas/cabecera.php";
     <title>Fifa-Tournaments</title>
 	<link rel="stylesheet" type="text/css" href="slider/engine1/style.css" />
 	<script type="text/javascript" src="javascript/jquery.js"></script>
-	<link href="estilos/cabecera.css" rel="stylesheet" type="text/css" />
-    <link href="estilos/index.css" rel="stylesheet" type="text/css" />
+
+<!--COMPRUEBO EL TEMA DE LA SESIÓN DEL JUGADOR QUE ESTÁ ACTIVA EN ESTE MOMENTO-->
+
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+	echo "<link href='estilos/".$_SESSION['temapref']."/index.css' rel='stylesheet' type='text/css' />";
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='estilos/1/index.css' rel='stylesheet' type='text/css' />";
+      
+ } ?>      
+      
 </head>
 
 <body>

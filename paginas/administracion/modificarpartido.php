@@ -11,9 +11,22 @@ include "../../conexion.php";
     <meta name="author" content="Ignacio Menchaca Recio" />
         
     <title>Fifa-Tournaments</title>
-	<link href="../../estilos/cabecera.css" rel="stylesheet" type="text/css" />
-	<link href="../../estilos/administracion.css" rel="stylesheet" type="text/css" />
+
 	<script type="text/javascript" src="../../javascript/jquery.js"></script>
+
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='../../estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+	echo "<link href='../../estilos/".$_SESSION['temapref']."/administracion.css' rel='stylesheet' type='text/css' />";
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='../../estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='../../estilos/1/administracion.css' rel='stylesheet' type='text/css' />";
+      
+ } ?>     
+
 </head>
 
 <body>

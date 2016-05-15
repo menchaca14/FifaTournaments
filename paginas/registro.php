@@ -48,9 +48,25 @@ if(isset($_POST['enviar'])){
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="author" content="Javier Rodriguez ,Ignacio Menchaca" />
     <title>Fifa-Tournaments</title>
-	<link rel="stylesheet" href="../estilos/registro.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<link href="../estilos/cabecera.css" rel="stylesheet" type="text/css" />
+    
+    <!--COMPRUEBO EL TEMA DE LA SESIÓN DEL JUGADOR QUE ESTÁ ACTIVA EN ESTE MOMENTO-->
+
+<?php if(isset($_SESSION['alias'])){
+	echo "<link href='/estilos/".$_SESSION['temapref']."/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo '<link rel="stylesheet" href="../estilos/'.$_SESSION['temapref'].'/registro.css" type="text/css" media="screen" />';
+
+    
+//SI NO HAY SESIÓN ACTIVA, USO EL CSS POR DEFECTO
+    
+    } else {
+    
+    echo "<link href='estilos/1/cabecera.css' rel='stylesheet' type='text/css' />";
+    echo '<link rel="stylesheet" href="../estilos/1/registro.css" type="text/css" media="screen" />';
+      
+ } ?>     
+    
+    
 </head>
 <body>
     <div class=cuerpo>
@@ -75,10 +91,10 @@ if(isset($_POST['enviar'])){
             <label for="fecnac">Fecha de nacimiento</label>
             <input class="text" type="date" name="fecnac" value="" required />
 
-            <label for="email">Email:</label></td>  
+            <label for="email">Email:</label> 
             <input class="text" name="email" value="" required />
 
-            <label for="pais">Pais:</label></td>
+            <label for="pais">Pais:</label>
             <input class="text" name="pais" value="" required />
 
             <label for="pais">Equipo favorito:</label>
@@ -133,7 +149,7 @@ echo "EL nombre de usuario o la cuenta de correo ya están en uso";
             header("refresh:3; url=registro.php");
 }else{
             // Realizar una consulta MySQL
-            $insert = "INSERT INTO JUGADOR VALUE(null".","."'".$_POST['alias']."'".","."'".$_POST['nombre']."'".","."'".$_POST['apellidos']."'".","."'".$_POST['fecnac']."'".","."'".$_POST['email']."'".","."'".$_POST['pais']."'".",MD5("."'".$_POST['clave1']."'"."),"."'".$_POST['nombreequipo']."'".",'0','pordefecto.jpg')";
+            $insert = "INSERT INTO JUGADOR VALUE(null".","."'".$_POST['alias']."'".","."'".$_POST['nombre']."'".","."'".$_POST['apellidos']."'".","."'".$_POST['fecnac']."'".","."'".$_POST['email']."'".","."'".$_POST['pais']."'".",MD5("."'".$_POST['clave1']."'"."),"."'".$_POST['nombreequipo']."'".",'0','pordefecto.jpg', '1')";
     $result = mysql_query($insert) or die('Consulta fallida: ' . mysql_error());
             if ($result) {
             echo "<p>Gracias por registrarte</p><p>ahora puedes iniciar sesión<p>";
