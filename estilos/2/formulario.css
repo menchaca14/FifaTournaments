@@ -1,0 +1,95 @@
+body {
+		font: 15px/1.6 Arial, sans-serif;
+		background-image: url(../imagenes/.jpg); 
+}
+#fondoform {
+  		margin: 1em auto;                  /* en este caso, auto nos centra el formulario*/
+  		padding: 1em;
+  		width: 800px;
+		background-image: url(../imagenes/papelviejo.jpg);
+}
+h1 {
+		font-weight: bold; Arial, sans-serif;
+		text-align: center;
+		margin: 0; /* damos el valor cero a margin, ya que por defecto en el h1 te viene un valor más alto.*/
+}
+
+.field {
+		border: 2px solid black;
+}
+
+legend{
+		font-size: 20px;
+}		
+p span label {
+		display: block;
+		font: normal 0.8em arial, sans-serif;
+		color: #000;
+}
+p span {
+		float: left;
+ 		padding: 0.3em 0;
+}
+/* anchura que ocupan los input en el formulario */
+p span.nomaps {
+		width: 40%;
+}
+
+p span.direccion {
+		width: 100%;
+}
+p span.edad {
+		width: 100%;
+}
+p span.correo {
+		width: 100%;
+}
+/*anchura del cuadro de escritura */
+p input {
+		padding: 0.2em;
+}
+
+/* longitud del cuadro en el que hay que escribir */
+
+input#apellidos, input#direccion, input#email {
+		width: 300px;
+}
+
+input#codigopostal {
+		width: 50px;
+}
+
+
+input#edad {
+		width: 20px;
+}
+
+select#redsocial {
+		width: 150px;
+}
+
+input#otro {
+		width: 100px;
+}
+.margen {
+		margin-left: 7em;
+		text-align: left;
+}
+.centrado {
+		text-align: center;
+}
+p {
+		margin: 0;
+		padding: 1em;
+		margin-left: 110px;
+ 		overflow: hidden;
+}
+/* cuando pones el ratón encima del cuadro de escritura, se cambia el color */
+p span input:hover {
+		background-color:#81DAF5;
+}
+
+p.select{
+		float: none;
+		width: auto;
+}
