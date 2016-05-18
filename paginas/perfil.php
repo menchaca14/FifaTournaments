@@ -63,6 +63,7 @@ echo "<a href='modificarperfil.php'>Modificar perfil</a>";
 echo "</span></br>";
 echo "<span class='modificarperfil'>";
 echo "<a href='modificartema.php'>Modificar tema</a>";
+echo "<br><a href='./pdf/output.php' target='_blank''>Imprimir info de usuario</a>";
 echo "</span>";
 echo "</div>";
 } else {

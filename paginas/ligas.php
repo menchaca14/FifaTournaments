@@ -19,7 +19,81 @@ include "../conexion.php";
  <?php } ?>
       
       
-   
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+
+           
+<?php 
+    // Conectando, seleccionando la base de datos
+    $link = mysqli_connect(SERVER, USER, PASS)or die('No se pudo conectar: ' . mysqli_error($link));
+    mysqli_select_db($link, BD) or die('No se pudo seleccionar la base de datos');
+    // Realizar una consulta MySQL
+    $query = "select nombreliga, idliga from liga;";
+    $result = mysqli_query($link, $query) or die('Consulta fallida: ' . mysqli_error($link));
+?>
+            
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Jugadores inscritos en ligas'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Inscritos',
+            data: [
+            <?php 
+                while ($linea = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+                        $query2 = "select count(*) from participa where idliga='".$linea['idliga']."';";
+                        $result2 = mysqli_query($link, $query2) or die('Consulta fallida: ' . mysqli_error($link));
+                        while ($linea2 = mysqli_fetch_array($result2, MYSQL_ASSOC)) {
+                            if (isset ($_POST['nombreliga'])) {
+                            if ($linea['nombreliga'] == $_POST["nombreliga"]) {
+                                echo "{name: '".$linea['nombreliga']."',";
+                                echo "y: ".$linea2['count(*)'];
+                                echo ", sliced: true,";
+                                echo "selected: true";
+                                echo "},";
+                            } else {
+                                echo "{name: '".$linea['nombreliga']."',";
+                                echo "y: ".$linea2['count(*)']."},";
+                            }
+                            } else {
+                                echo "{name: '".$linea['nombreliga']."',";
+                                echo "y: ".$linea2['count(*)']."},";
+                            }
+                        }
+            } 
+            ?>
+            ]
+        }]
+    });
+});
+
+		</script>
 </head>
 
 <body>
@@ -283,9 +357,11 @@ $result55 =  mysql_query($query55);
     mysql_close();
     echo "</div>";
     ?>
-
+<script src="liberias/js/highcharts.js"></script>
+<script src="liberias/js/modules/exporting.js"></script>
 
 <br><br><br>
+<div id="container" style="min-width: 310px; max-width: 800px; height: 300px; margin: 0 auto"></div>
     </div>
        
        <?php
